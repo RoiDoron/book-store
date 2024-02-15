@@ -27,6 +27,11 @@ const newBook = _createBook(title,price)
 gBooks.unshift(newBook)
 }
 
+function bookRead(bookId){
+    const book = gBooks.find(book=> book.id === bookId)
+    return book
+}
+
 
 
 function _createBooks() {
