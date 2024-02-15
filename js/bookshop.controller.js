@@ -3,7 +3,7 @@
 
 function onInit() {
     renderBooks()
- }
+}
 
 function renderBooks() {
     const books = getBooks()
@@ -16,11 +16,11 @@ function renderBooks() {
         <td>${book.price}</td>
         <td>
             <button class="read">Read</button>
-            <button onclick="onUpdateBook('${book.id}')" class="update">Update</button>
+            <button onclick="onUpdateBook('${book.id}','${book.price}')" class="update">Update</button>
             <button onclick="onRemoveBook('${book.id}')" class="delete">Delete</button>
         </td>
     </tr>`)
-        
+
 
     const elBooksTable = document.querySelector('.books-table')
     elBooksTable.innerHTML = strHTML + strHTMLcontinue.join('')
@@ -30,4 +30,10 @@ function onRemoveBook(bookId) {
     removeBook(bookId)
     renderBooks()
 }
- }
+
+function onUpdateBook(bookId,price) {
+    
+    const newPrice = prompt('update the price',price)
+    updatePrice(bookId,newPrice)
+    renderBooks()
+}

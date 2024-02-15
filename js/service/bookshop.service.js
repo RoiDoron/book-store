@@ -6,25 +6,31 @@ _createBooks()
 
 
 
-function getBooks(){
+function getBooks() {
     return gBooks
 }
 
-function removeBook(bookId){
-    const bookIdx = gBooks.findIndex(book=> book.id === bookId)
-    gBooks.splice(bookIdx,1)
-    
+function removeBook(bookId) {
+    const bookIdx = gBooks.findIndex(book => book.id === bookId)
+    gBooks.splice(bookIdx, 1)
 
+
+}
+
+function updatePrice(bookId, newPrice) {
+    const bookIdx = gBooks.findIndex(book => book.id === bookId)
+    gBooks[bookIdx].price = newPrice
 }
 
 
 
-function _createBooks(){
-    gBooks =[
-        _createBook('The adventures of Lori Ipsi',120),
-        _createBook('The note book',100),
-        _createBook('The hobbit',75),
-        _createBook('World atlas',220)
+
+function _createBooks() {
+    gBooks = [
+        _createBook('The adventures of Lori Ipsi', 120),
+        _createBook('The note book', 100),
+        _createBook('The hobbit', 75),
+        _createBook('World atlas', 220)
     ]
 }
 console.log()
