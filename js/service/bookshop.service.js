@@ -48,6 +48,18 @@ function _createBook(title, price) {
         id: makeId(),
         title: title,
         price: price,
-        imgUrl: 'img'
+        imgUrl: getRandomPicture()
     }
+}
+
+function getRandomPicture(){
+    const pic = ['<img src="imag/atlas.jpg">',
+    '<img src="imag/harry.webp">',
+    '<img src="imag/hobit.jpg">',
+    '<img src="imag/sharma.webp">']
+
+    const num = getRandomInt(0,4)
+   
+    return pic[num]
+
 }

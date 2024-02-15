@@ -27,15 +27,24 @@ function renderBooks() {
 }
 
 function onBookRead(bookId) {
-    
+
     const book = bookRead(bookId)
 
     const elBookRead = document.querySelector('.book-details')
     const elSpan = elBookRead.querySelector('h2 span')
-    const elPre = elBookRead.querySelector('pre')
 
-    elPre.innerText = JSON.stringify(book,null,2)
+    const elPic = elBookRead.querySelector('.pic')
+    const elPrice = elBookRead.querySelector('.price')
+    const elId = elBookRead.querySelector('.id')
+
+
+
+
     elSpan.innerText = book.title
+    elPic.innerHTML = book.imgUrl
+    elPrice.innerText = book.price
+    elId.innerText = book.id
+
 
     elBookRead.showModal()
 }

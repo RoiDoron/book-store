@@ -48,3 +48,11 @@ button.update{
 button.delete{
     background-color: rgb(197, 56, 56);
 }
+
+.pic{
+    width: 40px;
+}
+
+img{
+    width: 90px;
+}
