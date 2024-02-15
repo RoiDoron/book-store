@@ -22,6 +22,10 @@ function updatePrice(bookId, newPrice) {
     gBooks[bookIdx].price = newPrice
 }
 
+function AddBook(title,price){
+const newBook = _createBook(title,price)
+gBooks.unshift(newBook)
+}
 
 
 
