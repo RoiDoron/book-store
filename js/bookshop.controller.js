@@ -1,27 +1,33 @@
 'use strict'
 
 
- function onInit(){
+function onInit() {
     renderBooks()
  }
 
- function renderBooks(){
+function renderBooks() {
     const books = getBooks()
 
     const strHTML = '<tr><th>title</th><th>price</th><th>action</th></tr>'
 
-   const strHTMLcontinue = books.map(book=> 
+    const strHTMLcontinue = books.map(book =>
         `<tr>
         <td>${book.title}</td>
         <td>${book.price}</td>
         <td>
             <button class="read">Read</button>
-            <button class="update">Update</button>
-            <button class="delete">Delete</button>
+            <button onclick="onUpdateBook('${book.id}')" class="update">Update</button>
+            <button onclick="onRemoveBook('${book.id}')" class="delete">Delete</button>
         </td>
     </tr>`)
         
-    console.log(strHTMLcontinue.join(''))
-        const elBooksTable =document.querySelector('.books-table')
-        elBooksTable.innerHTML =  strHTML+strHTMLcontinue.join('')
+
+    const elBooksTable = document.querySelector('.books-table')
+    elBooksTable.innerHTML = strHTML + strHTMLcontinue.join('')
+}
+
+function onRemoveBook(bookId) {
+    removeBook(bookId)
+    renderBooks()
+}
  }
