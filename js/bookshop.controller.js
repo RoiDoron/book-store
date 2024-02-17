@@ -50,6 +50,7 @@ function onBookRead(bookId) {
 }
 
 function onRemoveBook(bookId) {
+    BookChange(bookId, 'delete')
     removeBook(bookId)
     renderBooks()
 }
@@ -58,24 +59,50 @@ function onUpdateBook(bookId, price) {
 
     const newPrice = prompt('update the price', price)
     updatePrice(bookId, newPrice)
+    BookChange(bookId, 'Update')
     renderBooks()
 }
 
 function onAddBook() {
     const title = prompt('The book title?')
     const price = prompt('The book price?')
-    AddBook(title, price)
+    var bookID = AddBook(title, price)
+    BookChange(bookID, 'Add book')
     renderBooks()
 }
 
-function onInput(){
+function onInput() {
     const input = document.querySelector("input")
     setFilterBy(input.value)
     renderBooks()
 }
 
-function onClear(){
-   
+function onClear() {
+
     setFilterBy('')
     renderBooks()
+}
+
+function BookChange(bookId, txt) {
+
+    const book = bookRead(bookId)
+
+    const elBookUpdate = document.querySelector('.book-update')
+    const elSpan = elBookUpdate.querySelector('h2 span')
+    const elSpanContent = elBookUpdate.querySelector('.content span')
+
+    const elPrice = elBookUpdate.querySelector('.price')
+    const elId = elBookUpdate.querySelector('.id')
+
+    elSpanContent.innerText = txt
+    elSpan.innerText = book.title
+    elPrice.innerText = book.price
+    elId.innerText = book.id
+
+
+    elBookUpdate.showModal()
+
+    setTimeout(()=>{
+     elBookUpdate.close()
+    }, 2000)
 }

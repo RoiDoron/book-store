@@ -31,6 +31,7 @@ function AddBook(title, price) {
     const newBook = _createBook(title, price)
     gBooks.unshift(newBook)
     _saveBooks()
+    return newBook.id
 }
 
 function bookRead(bookId) {
