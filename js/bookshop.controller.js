@@ -59,16 +59,18 @@ function onRemoveBook(bookId) {
 
 function onUpdateBook(bookId, price) {
 
-    const newPrice = prompt('update the price', price)
+    const newPrice = +prompt('update the price', price)
+    if(sanitise(newPrice) === 'NaN') return alert('price needs to be a number!')
     updatePrice(bookId, newPrice)
-    BookChange(bookId, 'Update')
+    
     renderBooks()
 }
 
 function onAddBook() {
     const title = prompt('The book title?')
-    const price = prompt('The book price?')
-    if (title === '' || price === '') return alert('cant add book without price or title!')
+    const price = +prompt('The book price?')
+   
+    if (title === '' || sanitise(price) === 'NaN') return alert('cant add book without price or title!')
     var bookID = AddBook(title, price)
     BookChange(bookID, 'Add book')
     renderBooks()

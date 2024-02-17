@@ -17,3 +17,10 @@ function getRandomInt(min, max) {
     const maxFloored = Math.floor(max)
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
 }
+
+function sanitise(x) {
+    if (isNaN(x)) {
+      return 'NaN';
+    }
+    return x;
+  }

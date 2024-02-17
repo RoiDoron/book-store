@@ -9,11 +9,11 @@
 </head>
 
 <body onload="onInit()">
-    <h1>Book Shop</h1>
+    <header>Book Shop</header>
     <button onclick="onAddBook()">Add Book</button>
     <form action="/filter">
         <input oninput="onInput()" type="text" placeholder="filter">
-        <input onclick="onClear()" type="reset" value="clear" alt="clear the filter form">
+        <input class="button" onclick="onClear()" type="reset" value="clear" alt="clear the filter form">
     </form>
 
     <table>

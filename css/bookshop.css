@@ -11,6 +11,17 @@ body {
     text-align: center;
 }
 
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: lightsteelblue;
+    padding: 15px var(--container-padding);
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
 table {
     border-collapse: collapse;
     border: 2px solid rgb(140 140 140);
@@ -32,7 +43,8 @@ th {
     background-color: rgb(201, 193, 193);
 }
 
-button {
+button
+{
     padding: 5px;
     border-radius: 25%;
     border: none;
@@ -59,8 +71,6 @@ img {
 }
 
 footer {
-
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,3 +78,8 @@ footer {
     background-color: lightsteelblue;
     padding: 15px var(--container-padding);
 }
+
+form{
+    display: inline;
+}
+
