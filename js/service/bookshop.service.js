@@ -2,13 +2,15 @@
 
 const BOOK_DB = 'booksDB'
 var gBooks
+var gFilter = ''
 _createBooks()
 
 
 
 
 function getBooks() {
-    return gBooks
+    if (!gFilter) return gBooks
+    return gBooks.filter(book => book.title.toLowerCase().includes(gFilter))
 }
 
 function removeBook(bookId) {
@@ -36,13 +38,11 @@ function bookRead(bookId) {
     return book
 }
 
-
-
 function _createBooks() {
     gBooks = loadFromStorage('booksDB')
 
     if (!gBooks) {
-        console.log('hi')
+       
         gBooks = [
             _createBook('The adventures of Lori Ipsi', 120),
             _createBook('The note book', 100),
@@ -76,4 +76,9 @@ function getRandomPicture() {
 
 function _saveBooks() {
     saveToStorage(BOOK_DB, gBooks)
+}
+
+function setFilterBy(input) {
+    gFilter = input.toLowerCase()
+
 }

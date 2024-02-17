@@ -11,6 +11,11 @@
 <body onload="onInit()">
     <h1>Book Shop</h1>
     <button onclick="onAddBook()">Add Book</button>
+    <form action="/filter">
+        <input oninput="onInput()" type="text" placeholder="filter">
+        <input onclick="onClear()" type="reset" value="clear" alt="clear the filter form">
+    </form>
+
     <table>
         <tbody class="books-table">
 
@@ -26,7 +31,7 @@
             <button>X</button>
         </form>
     </dialog>
-    
+
     <script src="js/service/storage.service.js"></script>
     <script src="js/service/utill.service.js"></script>
     <script src="js/service/bookshop.service.js"></script>

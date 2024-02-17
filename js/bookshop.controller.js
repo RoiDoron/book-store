@@ -67,3 +67,15 @@ function onAddBook() {
     AddBook(title, price)
     renderBooks()
 }
+
+function onInput(){
+    const input = document.querySelector("input")
+    setFilterBy(input.value)
+    renderBooks()
+}
+
+function onClear(){
+   
+    setFilterBy('')
+    renderBooks()
+}
