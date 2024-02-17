@@ -24,36 +24,47 @@ table {
 
 th,
 td {
-  border: 1px solid rgb(160 160 160);
-  padding: 8px 10px;
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 10px;
 }
 
 th {
-  background-color: rgb(201, 193, 193);
+    background-color: rgb(201, 193, 193);
 }
 
-button{
+button {
     padding: 5px;
     border-radius: 25%;
     border: none;
 }
 
-button.read{
+button.read {
     background-color: rgb(64, 147, 185);
 }
 
-button.update{
+button.update {
     background-color: rgb(196, 186, 52);
 }
 
-button.delete{
+button.delete {
     background-color: rgb(197, 56, 56);
 }
 
-.pic{
+.pic {
     width: 40px;
 }
 
-img{
+img {
     width: 90px;
+}
+
+footer {
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: lightsteelblue;
+    padding: 15px var(--container-padding);
 }

@@ -28,6 +28,7 @@ function updatePrice(bookId, newPrice) {
 }
 
 function AddBook(title, price) {
+    
     const newBook = _createBook(title, price)
     gBooks.unshift(newBook)
     _saveBooks()
@@ -82,4 +83,17 @@ function _saveBooks() {
 function setFilterBy(input) {
     gFilter = input.toLowerCase()
 
+}
+
+function totalExpensive(){
+return gBooks.filter(book=> book.price > 200).length
+
+}
+
+function totalAverage(){
+    return gBooks.filter(book=> book.price < 200 && book.price >80).length
+}
+
+function totalCheap(){
+    return gBooks.filter(book=> book.price < 80).length
 }

@@ -24,6 +24,8 @@ function renderBooks() {
 
     const elBooksTable = document.querySelector('.books-table')
     elBooksTable.innerHTML = strHTML + strHTMLcontinue.join('')
+
+    renderStats()
 }
 
 function onBookRead(bookId) {
@@ -66,6 +68,7 @@ function onUpdateBook(bookId, price) {
 function onAddBook() {
     const title = prompt('The book title?')
     const price = prompt('The book price?')
+    if (title === '' || price === '') return alert('cant add book without price or title!')
     var bookID = AddBook(title, price)
     BookChange(bookID, 'Add book')
     renderBooks()
@@ -102,7 +105,22 @@ function BookChange(bookId, txt) {
 
     elBookUpdate.showModal()
 
-    setTimeout(()=>{
-     elBookUpdate.close()
+    setTimeout(() => {
+        elBookUpdate.close()
     }, 2000)
+}
+
+function renderStats() {
+
+    const elExpensive = document.querySelector('.total-expensive')
+    const elAverage = document.querySelector('.total-average')
+    const elCheap = document.querySelector('.total-cheap')
+
+    elExpensive.innerText = totalExpensive()
+
+    elAverage.innerText = totalAverage()
+
+    elCheap.innerText = totalCheap()
+
+
 }
